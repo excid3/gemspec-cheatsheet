@@ -16,6 +16,15 @@
       a:hover, .nav a:hover { color: #0069D6; text-decoration: underline; }
       .pair { padding: 2px 5px; }
       .pair:hover { background-color: #DA4F49; color: white; border-radius: 3px;}
+
+      #hint {
+        position:absolute;
+        top:90px;
+        font-size:20px;
+        width:400px;
+        line-height:28px;
+      }
+
     </style>
 
     <!-- Le fav and touch icons -->
@@ -65,7 +74,8 @@
       $(document).ready(function(){
         $('.pair').mouseover(function(e){
           var el = this;
-          $('#hint').css('top', $(document).scrollTop() + (90) + 'px')
+          console.log($(document).scrollTop() + (90) + "px");
+          $('#hint').css('top', $(document).scrollTop() + (90) + 'px');
           var key = $('.key', el).html().replace(/"/g, '');
           $('#hint').html(hints[key]["summary"]);
           $('#hint').prepend("<h1>" + key + "</h1>");
@@ -127,7 +137,7 @@
 end</pre>
         </div>
 
-        <div id="hint" class="span5">
+        <div id="hint" class="offset10 span5">
           Ohai
         </div>
 
