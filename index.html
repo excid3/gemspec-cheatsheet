@@ -14,7 +14,8 @@
       body { padding-top: 20px; }
       pre { line-height: 1.8em; }
       a:hover, .nav a:hover { color: #0069D6; text-decoration: underline; }
-      .pair:hover { font-weight: bold; background-color: white; }
+      .pair { padding: 2px 5px; }
+      .pair:hover { background-color: #DA4F49; color: white; border-radius: 3px;}
     </style>
 
     <!-- Le fav and touch icons -->
@@ -25,37 +26,40 @@
 
     <script type="text/javascript">
       var hints = {
-        "author": "The author or authors of the package contained in the gem. Can either be a string or an array of strings.",
-        "autorequire": "<strong>Deprecated</strong> The file that will be loaded when the gem method is called.",
-        "bindir": "The directory containing the application files, if any.",
-        "date": "The date/time that the gem was created.",
-        "default_executable": "Of all the application files in the package, the default executable is the one that can be run directly through the gem.",
-        "dependencies": "Lists the gems that must be installed for this gem to work.",
-        "add_dependency": "Adds a gem to the dependencies list. These are the gems that must be installed for this gem to work.",
-        "development dependencies": "Gems that are used for development purposes only.",
-        "add_development_dependency": "Adds a gem to the development dependencies list. These gems are used for development purposes only.",
-        "description": "Detailed description of the gem.",
-        "email": "The author’s email address.",
-        "executables": "A list of files in the package that are applications.",
-        "extensions": "The paths to extconf.rb-style files used to compile extensions.",
-        "extra_rdoc_files": "A list of extra files that will be used by RDoc to generate the documentation.",
-        "files": "The list of files to be contained in the gem.",
-        "has_rdoc": "Indicates whether the code in the gem has been commented with RDoc in mind.",
-        "homepage": "URL of the project or author.",
-        "license": "The license(s) for the library.",
-        "name": "The name of the gem.",
-        "platform": "The target platform for the gem.",
-        "rdoc_options": "Specifies the rdoc options to be used when generating API documentation",
-        "require_paths": "List of \"require\" paths from the root of the gem.",
-        "required_ruby_version": "The version of Ruby required to use the gem.",
-        "required_rubygems_version": "The version of RubyGems required to use the gem.",
-        "requirements": "Lists the external (to RubyGems) requirements that must be met for this gem to work. It's simply information for the user.",
-        "rubyforge_project": "The RubyForge project corresponding to the gem.",
-        "rubygems_version": "The version of RubyGems used to create this gem.",
-        "specification_version": "The revision level of the GemSpec specification that this gem conforms to.",
-        "summary": "A short description of the gem.",
-        "test_files": "A collection of unit test files. They will be loaded as unit tests when the user requests a gem to be unit tested.",
-        "version": "The version of the gem. See RationalVersioningPolicy for some advice on specifying the version number for your gem."
+        "author": {"summary": "The author or authors of the package contained in the gem."},
+        "authors": {"summary": "The author or authors of the package contained in the gem."},
+        "autorequire": {"summary": "<strong>Deprecated</strong> The file that will be loaded when the gem method is called."},
+        "bindir": {"summary": "The directory containing the application files, if any."},
+        "date": {"summary": "The date/time that the gem was created."},
+        "default_executable": {"summary": "Of all the application files in the package, the default executable is the one that can be run directly through the gem."},
+        "dependencies": {"summary": "Lists the gems that must be installed for this gem to work."},
+        "add_dependency": {"summary": "Adds a gem to the dependencies list. These are the gems that must be installed for this gem to work."},
+        "development dependencies": {"summary": "Gems that are used for development purposes only."},
+        "add_development_dependency": {"summary": "Adds a gem to the development dependencies list. These gems are used for development purposes only."},
+        "description": {"summary": "Detailed description of the gem."},
+        "email": {"summary": "The author’s email address."},
+        "executables": {"summary": "A list of files in the package that are applications."},
+        "extensions": {"summary": "The paths to extconf.rb-style files used to compile extensions."},
+        "extra_rdoc_files": {"summary": "A list of extra files that will be used by RDoc to generate the documentation."},
+        "files": {"summary": "The list of files to be contained in the gem."},
+        "has_rdoc": {"summary": "Indicates whether the code in the gem has been commented with RDoc in mind."},
+        "homepage": {"summary": "URL of the project or author."},
+        "license": {"summary": "The license(s) for the library."},
+        "licenses": {"summary": "The license(s) for the library."},
+        "name": {"summary": "The name of the gem."},
+        "platform": {"summary": "The target platform for the gem."},
+        "rdoc_options": {"summary": "Specifies the rdoc options to be used when generating API documentation"},
+        "require_path": {"summary": "List of \"require\" paths from the root of the gem."},
+        "require_paths": {"summary": "List of \"require\" paths from the root of the gem."},
+        "required_ruby_version": {"summary": "The version of Ruby required to use the gem."},
+        "required_rubygems_version": {"summary": "The version of RubyGems required to use the gem."},
+        "requirements": {"summary": "Lists the external (to RubyGems) requirements that must be met for this gem to work. It's simply information for the user."},
+        "rubyforge_project": {"summary": "The RubyForge project corresponding to the gem."},
+        "rubygems_version": {"summary": "The version of RubyGems used to create this gem."},
+        "specification_version": {"summary": "The revision level of the GemSpec specification that this gem conforms to."},
+        "summary": {"summary": "A short description of the gem."},
+        "test_files": {"summary": "A collection of unit test files. They will be loaded as unit tests when the user requests a gem to be unit tested."},
+        "version": {"summary": "The version of the gem. See RationalVersioningPolicy for some advice on specifying the version number for your gem."}
       }
 
       $(document).ready(function(){
@@ -63,7 +67,7 @@
           var el = this;
           $('#hint').css('top', $(document).scrollTop() + (90) + 'px')
           var key = $('.key', el).html().replace(/"/g, '');
-          $('#hint').html(hints[key]);
+          $('#hint').html(hints[key]["summary"]);
           $('#hint').prepend("<h1>" + key + "</h1>");
         });
       });
@@ -75,8 +79,8 @@
       <div id="header">
         <div class="pull-right">
           <ul class="nav">
-            <li><a href="mailto:contact@lithoslabs.com">Contact</a></li>
-            <!--<li><a href="#">Blog</a></li>-->
+            <li><a href="http://rubygems.org">RubyGems.org</a></li>
+            <li><a href="http://docs.rubygems.org/read/chapter/20">GemSpec Docs</a></li>
           </ul>
         </div>
         <h1><a href="#">GemSpec CheatSheet</a></h1>
@@ -85,29 +89,41 @@
       <div class="row">
         <div class="span10">
         <pre>Gem::Specification.new do |s|
-  <span class="pair">s.<span class="key">platform</span>    = Gem::Platform::RUBY</span>
-  <span class="pair">s.<span class="key">name</span>        = 'rails'</span>
-  <span class="pair">s.<span class="key">version</span>     = version</span>
-  <span class="pair">s.<span class="key">summary</span>     = 'Full-stack web application framework.'</span>
-  <span class="pair">s.<span class="key">description</span> = 'Ruby on Rails is a full-stack web framework.'</span>
+  <span class="pair">s.<span class="key">platform</span>          = Gem::Platform::RUBY</span>
+  <span class="pair">s.<span class="key">name</span>              = 'example'</span>
+  <span class="pair">s.<span class="key">rubyforge_project</span> = 'example'</span>
+  <span class="pair">s.<span class="key">version</span>           = '0.4.1'</span>
+  <span class="pair">s.<span class="key">summary</span>           = 'An example gem.'</span>
+  <span class="pair">s.<span class="key">description</span>       = 'An example gem with many gemspec options.'</span>
+  <span class="pair">s.<span class="key">requirements</span>      = 'A powerful graphics card.'</span>
 
   <span class="pair">s.<span class="key">required_ruby_version</span>     = '>= 1.9.3'</span>
   <span class="pair">s.<span class="key">required_rubygems_version</span> = '>= 1.8.11'</span>
 
-  <span class="pair">s.<span class="key">author</span>            = 'David Heinemeier Hansson'</span>
+  <span class="pair">s.<span class="key">author</span>            = 'John Jones'</span>
+  <span class="pair">s.<span class="key">authors</span>           = ['John Jones', 'Mary Smith']</span>
   <span class="pair">s.<span class="key">email</span>             = 'david@loudthinking.com'</span>
   <span class="pair">s.<span class="key">homepage</span>          = 'http://www.rubyonrails.org'</span>
+  <span class="pair">s.<span class="key">license</span>           = 'MIT'</span>
+  <span class="pair">s.<span class="key">licenses</span>          = ['MIT', 'GPL-2']</span>
+
+  <span class="pair">s.<span class="key">has_rdoc</span>         = true</span>
+  <span class="pair">s.<span class="key">rdoc_options</span>     << '--line-numbers'</span>
+  <span class="pair">s.<span class="key">extra_rdoc_files</span> = ['README', 'doc/user-guide.txt']</span>
 
   <span class="pair">s.<span class="key">bindir</span>             = 'bin'</span>
-  <span class="pair">s.<span class="key">executables</span>        = []</span>
+  <span class="pair">s.<span class="key">executables</span>        = ['bin/foo', 'bin/bar']</span>
+  <span class="pair">s.<span class="key">default_executable</span> = 'bin/bar'</span>
 
-  <span class="pair">s.<span class="key">add_dependency</span> 'activesupport',   version</span>
-  <span class="pair">s.<span class="key">add_dependency</span> 'actionpack',      version</span>
-  <span class="pair">s.<span class="key">add_dependency</span> 'activerecord',    version</span>
-  <span class="pair">s.<span class="key">add_dependency</span> 'actionmailer',    version</span>
-  <span class="pair">s.<span class="key">add_dependency</span> 'railties',        version</span>
-  <span class="pair">s.<span class="key">add_dependency</span> 'bundler',         '~> 1.1'</span>
-  <span class="pair">s.<span class="key">add_dependency</span> 'sprockets-rails', '~> 1.0'</span>
+  <span class="pair">s.<span class="key">require_path</span>  = '.'</span>
+  <span class="pair">s.<span class="key">require_paths</span> << 'ext'</span>
+  <span class="pair">s.<span class="key">files</span>         = FileList['lib/**/*.rb', 'test/**/*'].to_a</span>
+  <span class="pair">s.<span class="key">test_files</span>    = Dir.glob('test/tc_*.rb')</span>
+
+  <span class="pair">s.<span class="key">add_dependency</span>             'bundler',         '~> 1.1'</span>
+  <span class="pair">s.<span class="key">add_development_dependency</span> 'rspec'</span>
+
+  <span class="pair">s.<span class="key">extensions</span> << 'ext/rmagic/extconf.rb'</span>
 end</pre>
         </div>
 
