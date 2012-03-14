@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Gemspec Cheatsheet</title>
+    <title>GemSpec CheatSheet</title>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -11,8 +11,9 @@
     <!-- Le styles -->
     <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
     <style type="text/css">
-      body { padding-top: 60px; }
+      body { padding-top: 20px; }
       pre { line-height: 1.8em; }
+      a:hover, .nav a:hover { color: #0069D6; text-decoration: underline; }
       .pair:hover { font-weight: bold; background-color: white; }
     </style>
 
@@ -47,6 +48,7 @@
         "rdoc_options": "Specifies the rdoc options to be used when generating API documentation",
         "require_paths": "List of \"require\" paths from the root of the gem.",
         "required_ruby_version": "The version of Ruby required to use the gem.",
+        "required_rubygems_version": "The version of RubyGems required to use the gem.",
         "requirements": "Lists the external (to RubyGems) requirements that must be met for this gem to work. It's simply information for the user.",
         "rubyforge_project": "The RubyForge project corresponding to the gem.",
         "rubygems_version": "The version of RubyGems used to create this gem.",
@@ -62,6 +64,7 @@
           $('#hint').css('top', $(document).scrollTop() + (90) + 'px')
           var key = $('.key', el).html().replace(/"/g, '');
           $('#hint').html(hints[key]);
+          $('#hint').prepend("<h1>" + key + "</h1>");
         });
       });
     </script>
@@ -89,7 +92,7 @@
   <span class="pair">s.<span class="key">description</span> = 'Ruby on Rails is a full-stack web framework.'</span>
 
   <span class="pair">s.<span class="key">required_ruby_version</span>     = '>= 1.9.3'</span>
-  <span class="pair">s.<span class="key">required_rubygems_version</span> = ">= 1.8.11"</span>
+  <span class="pair">s.<span class="key">required_rubygems_version</span> = '>= 1.8.11'</span>
 
   <span class="pair">s.<span class="key">author</span>            = 'David Heinemeier Hansson'</span>
   <span class="pair">s.<span class="key">email</span>             = 'david@loudthinking.com'</span>
@@ -111,7 +114,13 @@ end</pre>
         <div id="hint" class="span5">
           Ohai
         </div>
+
       </div>
+
+      <footer>
+      <p class="pull-right">Built by <a href="http://excid3.com">Chris Oliver</a> | <a href="http://twitter.com/excid3">@excid3</a></p>
+      </footer>
+
     </div>
   </body>
 </html>
